@@ -32,8 +32,6 @@ function createHeaders() {
 
 function createOrder(id, forterToken, inputs) {
 
-    console.log(inputs)
-
   // TODO: impelement
   // Use the request body from step 1
   return {
