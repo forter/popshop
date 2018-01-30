@@ -31,7 +31,9 @@ function createHeaders() {
 }
 
 function createOrder(id, forterToken, inputs) {
+
     console.log(inputs)
+
   // TODO: impelement
   // Use the request body from step 1
   return {
@@ -80,19 +82,19 @@ function createOrder(id, forterToken, inputs) {
       {
         "billingDetails": {
           "personalDetails": {
-            "firstName": "John",
-            "lastName": "Smith"
+            "firstName": inputs[0][1].split(' ')[0], //"John",
+            "lastName": inputs[0][1].split(' ')[1] //"Smith"
           },
           "phone": [{
-            "phone": "15557654321"
+            "phone": inputs[2][1]//"15557654321"
           }]
         },
         "creditCard": {
-          "nameOnCard": "John R. H. Smith",
+          "nameOnCard": inputs[0][1], //"John R. H. Smith",
           "bin": "424242",
-          "lastFourDigits": "4242",
-          "expirationMonth": "03",
-          "expirationYear": "2018",
+          "lastFourDigits": inputs[4][1].slice(-4)//"4242",
+          "expirationMonth": inputs[5][1] //"03",
+          "expirationYear": inputs[6][1] //"2018",
           "verificationResults": {
             "avsFullResult": "Y",
             "cvvResult": "M",
@@ -114,9 +116,9 @@ function createOrder(id, forterToken, inputs) {
       }
     ],
     "accountOwner": {
-      "firstName": "John",
-      "lastName": "Smith",
-      "email": "john_s@test.com",
+      "firstName": inputs[0][1].split(' ')[0]//"John",
+      "lastName": inputs[0][1].split(' ')[1]//"Smith",
+      "email": inputs[1][1]//"john_s@test.com",
       "created": 1415273168,
       "pastOrdersCount": 51,
       "pastOrdersSum": 1702.5,
